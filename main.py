@@ -2,6 +2,8 @@ from body import *
 from parse import *
 from train import *
 from kNN import *
+from neuralnet import *
+import torch
 
 def main():
   # bodies = parse_file("star_classification.csv")
@@ -16,6 +18,8 @@ def main():
   # for body in testingData:
   #   print(body)
   kNN('star_classification.csv')
+
+  #neural_network('star_classification.csv')
   
 
 
