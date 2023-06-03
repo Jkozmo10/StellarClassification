@@ -11,10 +11,10 @@ from sklearn.preprocessing import LabelEncoder
 def neural_network(file):
     df = pd.read_csv(file)
     labelEncoder = LabelEncoder()
-    df['classification'] = labelEncoder.fit_transform(df['classification']) #Galaxy = 0, qso = 1, star = 2
+    df['class'] = labelEncoder.fit_transform(df['class']) #Galaxy = 0, qso = 1, star = 2
     
-    X = df.drop(columns=['classification', 'obj_ID'])
-    y = df['classification'].values
+    X = df.drop(columns=['class', 'obj_ID'])
+    y = df['class'].values
     
 
     #print(X.head())
