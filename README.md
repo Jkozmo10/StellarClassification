@@ -4,7 +4,7 @@ This respository contains the code and demo of my senior project at Cal Poly, Sa
 
 ## Project Description
 
-This project is an exploration of machine learning algorithms to the problem of classifying stellar bodies as stars, galaxies, or black holes (quasars).
+This project is an exploration of machine learning algorithms to the problem of classifying stellar bodies as stars, galaxies, or black holes (quasars). If you would like to experiment with the algorithms, please use the Demo file, and be sure to have the data in the correct place.
 
 ## Organization
 ```
