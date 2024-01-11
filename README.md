@@ -9,8 +9,9 @@ This project is an exploration of machine learning algorithms to the problem of 
 ## Organization
 ```
 .
+├── data                   # Contains the data used and other data for predictions
 ├── legacy                 # Contains code that was sample for the demo
-├── Data                   # Contains the data used and other data for predictions
+├── .gitignore             # Standard .gitignore
 ├── README.md              # This file
 └── Demo.ipynb             # The main file that contains the polished code
 ```
