@@ -1,17 +1,24 @@
-from body import *
+import argparse
 
-def parse_file(file):
-  bodies = {}
-  count = 0
-  inFile = open(file, 'r')
+def parse_command_line():
+  parser = argparse.ArgumentParser()
+
+  parser.add_argument(dest = 'filename')
+  parser.add_argument('-t', dest = 'goal', choices=['predict', 'train'], required=True)
+  parser.add_argument('-a', dest = 'alg', choices=['kNN', 'neuralNet', 'SVM'], required=True)
+
+  args = parser.parse_args()
+
+  return args.filename, args.alg, args.goal
+
+def parse_new_data(dataFile):
+  inFile = open(dataFile, 'r')
+
+  data = []
 
   for line in inFile:
-    curLine = line.split(',')
-    curBody = Body(curLine[0], curLine[1], curLine[2], curLine[3], curLine[4], curLine[5], curLine[6], curLine[7]
-      ,curLine[8], curLine[9], curLine[10], curLine[11], curLine[12], curLine[13], curLine[14], curLine[15], curLine[16], curLine[17])
-    bodies[count] = curBody
-    count += 1
-
-  return bodies
-
+    lst = line.strip().split(',')
+    data.append(lst)
+  
+  return data
 

@@ -5,29 +5,60 @@ from kNN import *
 from neuralnet import *
 from svm import *
 import matplotlib.pyplot as plt
+from decisionTree import *
 
 def main():
-  # bodies = parse_file("star_classification.csv")
-  # trainingData = createTrainingData(bodies)
-  # testingData = createTestingData(bodies, trainingData)
 
-  # for body in trainingData:
-  #   print(body)
+  decision_tree("star_classification.csv")
 
-  # print("testing data: ")
+  return
+  file, alg, goal = parse_command_line()
 
-  # for body in testingData:
-  #   print(body)
+  if alg == 'kNN':
+    if goal == 'train':
+      kNN_train_test('star_classification.csv')
+    else:
+      k = int(input("Enter the value of k: "))
+      new_data = parse_new_data('new_data.csv')
+      kNN_predict(k, new_data)
+  elif alg == 'neuralNet':
+    if goal == 'train':
+      print('here')
+      model, scaler = neural_network_train('star_classification.csv')
+    else:
+      model, scaler = neural_network_train('star_classification.csv')
+      new_data = parse_new_data('new_data.csv')
+      neural_network_predict(model, scaler, new_data)
+  else:
+    if goal == 'train':
+      #SVM train
+      model, scaler = SVM_train('star_classification.csv')
+    else:
+      #SVM predict
+      model, scaler = SVM_train('star_classification.csv')
+      new_data = parse_new_data('new_data.csv')
+      SVM_predict(model, new_data, scaler)
 
-  # plt.plot([1,2,3,4,5], [10,23,56,79,90], 'bo')
-  # plt.xlabel("k")
-  # plt.ylabel('Accuracy')
-  # plt.show()
-  kNN_train('star_classification.csv')
 
-  #SVM('star_classification.csv')
+  #SVM_train('star_classification.csv')
 
-  #neural_network('star_classification.csv')
+  #model, scaler = neural_network_train('star_classification.csv')
+
+  # k, X, y, = kNN_train_test('star_classification.csv')
+
+  #new_data = parse_new_data('new_data.csv')
+
+  # kNN_predict(k, X, y, new_data)
+
+  #model, scaler = SVM('star_classification.csv')
+
+  #SVM_predict(model, new_data, scaler)
+
+
+
+  #neural_network_predict(model, scaler, new_data)
+
+
   
 
 
